@@ -1,0 +1,25 @@
+/*
+ * Animalec – protótipo da Tarefa 3.1 b)
+ * O aspeto vem do tema original (css/animalec.css = Bootstrap 4.3.1 + Freelancer 5.1.3, copiado de public/css).
+ * Este ficheiro só tem o que no projeto Vue está noutros sítios:
+ *  - os estilos de HeaderPage.vue (que no Vue estão em <style scoped>);
+ *  - o estilo base que o bootstrap-vue.css aplica ao b-navbar (collapse).
+ * Não altera o aspeto das páginas existentes.
+ */
+
+/* ---------- HeaderPage.vue (copiado de <style scoped>) ---------- */
+.divider-custom { margin: 1.25rem 0 1.5rem; width: 100%; display: flex; justify-content: center; align-items: center; }
+.divider-custom .divider-custom-line { width: 100%; max-width: 7rem; height: 0.25rem; background-color: #2c3e50; border-radius: 1rem; border-color: #2c3e50 !important; }
+.divider-custom .divider-custom-line:first-child { margin-right: 1rem; }
+.divider-custom .divider-custom-line:last-child { margin-left: 1rem; }
+.divider-custom .divider-custom-icon { color: #2c3e50 !important; font-size: 2rem; }
+.divider-custom.divider-light .divider-custom-line { background-color: #fff; }
+.divider-custom.divider-light .divider-custom-icon { color: #fff !important; }
+
+/* o título do HeaderPage é <h1> no protótipo (em vez de <h2>) mas mantém o tamanho do original */
+h1.page-section-heading { font-size: 2.25rem; line-height: 2rem; }
+@media (min-width: 992px) { h1.page-section-heading { font-size: 3rem; line-height: 2.5rem; } }
+
+/* ---------- ListQuestions.vue: cores das respostas no VER ---------- */
+.green { color: green; }
+.red { color: red; }

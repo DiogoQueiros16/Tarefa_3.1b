@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="img/animalec.ico">
+  <title>ANIMALEC</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.min.css">
+  <!-- Theme CSS (igual ao public/css/animalec.css do Animalec) -->
+  <link href="css/animalec.css" rel="stylesheet">
+  <link href="css/prototipo.css" rel="stylesheet">
+  <script src="js/sweetalert2.all.min.js" defer></script>
+  <script src="js/dados.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body data-pagina="sponsor-form">
+  <a class="sr-only sr-only-focusable" href="#conteudo">Saltar para o conteúdo</a>
+  <!-- App.vue -->
+  <div class="container-fluid" id="app">
+    <!-- NavBar.vue -->
+    <header>
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg" aria-label="Navegação principal">
+        <a href="index.html" class="navbar-brand ml-5"><img src="img/animalec_line.png" alt="Animalec" title="Página principal do Animalec" style="width: 250px; height: 50px;"></a>
+        <button type="button" aria-label="Toggle navigation" aria-controls="nav-collapse" aria-expanded="false" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+        <div id="nav-collapse" class="navbar-collapse collapse">
+          <ul class="navbar-nav ml-auto mr-5">
+            <li class="nav-item"><a href="#" class="nav-link" data-fora="Animais (área do utilizador)">ANIMAIS</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" data-fora="Quizzes (área do utilizador)">QUIZZES</a></li>
+            <li class="nav-item"><a href="index.html#contacts" class="nav-link">CONTACTOS</a></li>
+            <li class="nav-item" id="nav-admin" hidden><a href="admin.html" class="nav-link">ADMIN</a></li>
+            <li class="nav-item" id="nav-login"><a href="login.html" class="nav-link">LOGIN</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main id="conteudo">
+      <section class="page-section">
+        <div class="container">
+          <!-- HeaderPage.vue -->
+          <header class="container">
+            <div class="row text-center"><div class="col"><h1 class="page-section-heading mt-5" id="titulo-form">ADICIONAR PATROCINADOR</h1></div></div>
+            <div class="row text-center"><div class="col">
+              <div class="divider-custom" aria-hidden="true"><div class="divider-custom-line"></div><div class="divider-custom-icon"><i class="fas fa-star"></i></div><div class="divider-custom-line"></div></div>
+            </div></div>
+          </header>
+          <!--FORM-->
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+              <form id="formulario" data-entidade="sponsors" data-lista="sponsors.html" data-nome="Patrocinador">
+                <div class="form-group">
+                  <label for="name" class="sr-only">Nome</label>
+                  <input type="text" id="name" name="name" class="form-control form-control-lg" placeholder="escreve nome" maxlength="80" required>
+                </div>
+                <div class="form-group">
+                  <label for="type" class="sr-only">Tipo</label>
+                  <select id="type" name="type" class="form-control form-control-lg" required>
+                    <option value="">-- SELECIONA TIPO --</option>
+                    <option value="empresa">EMPRESA</option>
+                    <option value="associacao">ASSOCIAÇÃO</option>
+                    <option value="particular">PARTICULAR</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="description" class="sr-only">Descrição</label>
+                  <textarea id="description" name="description" class="form-control form-control-lg" placeholder="escreve descrição" cols="30" rows="5" maxlength="300"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="sr-only">Email</label>
+                  <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder="escreve email" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone" class="sr-only">Telefone</label>
+                  <input type="tel" id="phone" name="phone" class="form-control form-control-lg" placeholder="escreve telefone" pattern="[0-9 +]{9,15}" title="só algarismos, espaços e +">
+                </div>
+                <div class="form-group">
+                  <label for="amount" class="sr-only">Contribuição anual em euros</label>
+                  <input type="number" id="amount" name="amount" class="form-control form-control-lg" placeholder="escreve contribuição anual (€)" min="0" step="50" required>
+                </div>
+                <div class="form-group">
+                  <label for="date" class="sr-only">Data de início do patrocínio</label>
+                  <input type="date" id="date" name="date" class="form-control form-control-lg" placeholder="escreve data de início" required title="data de início do patrocínio">
+                </div>
+                <div class="form-group">
+                  <label for="logo" class="sr-only">Link para o logótipo</label>
+                  <input type="url" id="logo" name="logo" class="form-control form-control-lg" placeholder="escreve link para logótipo" >
+                </div>
+                <div class="form-group">
+                  <label for="website" class="sr-only">Link para o website</label>
+                  <input type="url" id="website" name="website" class="form-control form-control-lg" placeholder="escreve link para website" >
+                </div>
+                <!-- relação N:N com Animal: mesmo padrão da lista de questões de AddQuiz.vue -->
+                <fieldset>
+                  <legend class="sr-only">Animais associados</legend>
+                  <div id="cabecalho-animais" hidden>
+                    <div class="row">
+                      <div class="col-md-9"><h4>Lista de animais</h4></div>
+                      <div class="col-md-3"><h4>Ações</h4></div>
+                    </div>
+                  </div>
+                  <div id="animais"></div>
+                </fieldset>
+                <button type="button" class="btn btn-outline-success mr-2" id="adicionar-animal"><i class="fas fa-plus-square"></i> ADICIONAR ANIMAIS</button>
+                <button type="submit" class="btn btn-outline-success mr-2" id="submeter"><i class="fas fa-save"></i> GRAVAR PATROCINADOR</button>
+                <a href="sponsors.html" class="btn btn-outline-danger"><i class="fas fa-window-close"></i> CANCELAR</a>
+              </form>
+            </div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

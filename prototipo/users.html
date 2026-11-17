@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="img/animalec.ico">
+  <title>ANIMALEC</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.min.css">
+  <!-- Theme CSS (igual ao public/css/animalec.css do Animalec) -->
+  <link href="css/animalec.css" rel="stylesheet">
+  <link href="css/prototipo.css" rel="stylesheet">
+  <script src="js/sweetalert2.all.min.js" defer></script>
+  <script src="js/dados.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body data-pagina="users">
+  <a class="sr-only sr-only-focusable" href="#conteudo">Saltar para o conteúdo</a>
+  <!-- App.vue -->
+  <div class="container-fluid" id="app">
+    <!-- NavBar.vue -->
+    <header>
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg" aria-label="Navegação principal">
+        <a href="index.html" class="navbar-brand ml-5"><img src="img/animalec_line.png" alt="Animalec" title="Página principal do Animalec" style="width: 250px; height: 50px;"></a>
+        <button type="button" aria-label="Toggle navigation" aria-controls="nav-collapse" aria-expanded="false" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+        <div id="nav-collapse" class="navbar-collapse collapse">
+          <ul class="navbar-nav ml-auto mr-5">
+            <li class="nav-item"><a href="#" class="nav-link" data-fora="Animais (área do utilizador)">ANIMAIS</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" data-fora="Quizzes (área do utilizador)">QUIZZES</a></li>
+            <li class="nav-item"><a href="index.html#contacts" class="nav-link">CONTACTOS</a></li>
+            <li class="nav-item" id="nav-admin" hidden><a href="admin.html" class="nav-link">ADMIN</a></li>
+            <li class="nav-item" id="nav-login"><a href="login.html" class="nav-link">LOGIN</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main id="conteudo">
+      <section class="page-section">
+        <div class="container">
+          <!-- HeaderPage.vue -->
+          <header class="container">
+            <div class="row text-center"><div class="col"><h1 class="page-section-heading mt-5">GESTÃO DE UTILIZADORES</h1></div></div>
+            <div class="row text-center"><div class="col">
+              <div class="divider-custom" aria-hidden="true"><div class="divider-custom-line"></div><div class="divider-custom-icon"><i class="fas fa-star"></i></div><div class="divider-custom-line"></div></div>
+            </div></div>
+          </header>
+          <!--MENU TOPO-->
+          <div class="row mb-4">
+            <div class="col-2"></div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-success mr-2 mt-2" data-fora="ADICIONAR UTILIZADOR"><i class="fas fa-plus-square"></i> ADICIONAR UTILIZADOR </button>
+              <a href="admin.html" class="btn btn-outline-info mr-2 mt-2"><i class="fas fa-bars"></i> MENU PRINCIPAL </a>
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <!--TABLE-->
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col">
+              <table class="table table-striped" id="tabela">
+                <caption class="sr-only">Lista de utilizadores</caption>
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col" aria-sort="ascending"> NOME <i class="fas fa-arrow-up" role="button" tabindex="0" aria-label="Ordenar por nome" data-ordenar></i></th>
+                    <th scope="col">TIPO</th>
+                    <th scope="col">DATA DE CRIAÇÃO</th>
+                    <th scope="col">AÇÕES</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
